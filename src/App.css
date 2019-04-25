@@ -31,3 +31,14 @@
     transform: rotate(360deg);
   }
 }
+#editor{
+  width: 1350px;
+  border-radius: 5px
+}
+.editor-div{
+  border: 0.5px solid silver;
+  height: 100%;
+  width: 500px;
+  margin: auto;
+  box-shadow: 1px 1px 3px silver;
+}

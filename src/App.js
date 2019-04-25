@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
+import TextEditor from './components/TextEditor'
+import MarkDownPreviewer from './components/MarkDownPreviewer'
 import './App.css';
 
-function App() {
+
+class App extends React.Component {
+  constructor(){
+    super()
+    this.state={
+      input : ''
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
+  //method to set the internal state to what is being inputed
+  handleChange(event){
+    const {  value} = event.target 
+    this.setState(
+      { input: value}
+    )
+
+  }
+  render(){
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      < TextEditor  value={this.state.input} handleChange={this.handleChange}/>
+      < MarkDownPreviewer input={this.state.input}/>  
     </div>
   );
 }
-
+}
 export default App;
